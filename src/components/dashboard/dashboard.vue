@@ -15,7 +15,8 @@
       }
     },
     created() {
-      axios.get('https://vuejs-axios-1cc2a.firebaseio.com/users.json')
+      // axios.get('https://vuejs-axios-1cc2a.firebaseio.com/users.json')
+      axios.get('/users.json')
         .then(res => {
           console.log(res)
           console.log(typeof res.data)
