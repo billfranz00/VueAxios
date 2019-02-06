@@ -107,7 +107,12 @@
         }
         console.log(formData)
         // axios.post('https://vuejs-axios-1cc2a.firebaseio.com/users.json', formData)
-        axios.post('/users.json', formData)
+        // axios.post('/users.json', formData)
+        axios.post('/signupNewUser?key=AIzaSyC_iKTiEZ31LTZivCFv11ljk7g7ze2ILjg', {
+          email: formData.email,
+          password: formData.password,
+          returnSecureToken: true
+        })
           .then(res => console.log(res))
           .catch(error => console.log(error));
       }
