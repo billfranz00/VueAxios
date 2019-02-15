@@ -70,7 +70,7 @@
 
 <script>
   // import axios from 'axios';
-  import axios from '../../axios-auth';
+  // import axios from '../../axios-auth';
 
   export default {
     data () {
@@ -106,15 +106,17 @@
           terms: this.terms
         }
         console.log(formData)
+        // this.$store.dispatch('signup', {email: formData.email, password: formData.password});
+        this.$store.dispatch('signup', formData);
         // axios.post('https://vuejs-axios-1cc2a.firebaseio.com/users.json', formData)
         // axios.post('/users.json', formData)
-        axios.post('/signupNewUser?key=AIzaSyC_iKTiEZ31LTZivCFv11ljk7g7ze2ILjg', {
-          email: formData.email,
-          password: formData.password,
-          returnSecureToken: true
-        })
-          .then(res => console.log(res))
-          .catch(error => console.log(error));
+        // axios.post('/signupNewUser?key=AIzaSyC_iKTiEZ31LTZivCFv11ljk7g7ze2ILjg', {
+        //   email: formData.email,
+        //   password: formData.password,
+        //   returnSecureToken: true
+        // })
+        //   .then(res => console.log(res))
+        //   .catch(error => console.log(error));
       }
     }
   }
