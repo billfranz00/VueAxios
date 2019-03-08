@@ -88,6 +88,7 @@
   // import axios from 'axios';
   // import axios from '../../axios-auth';
   import { required, email, numeric, minValue, minLength, sameAs, requiredUnless, helpers } from 'vuelidate/lib/validators';
+  import axios from 'axios';
   // Use to have checkbox be required
   const checked = helpers.withParams({ type: 'checked'}, (value, vm) => {
     if(vm.country !== 'germany') {
@@ -111,7 +112,22 @@
     validations: {
       email: {
         required,
-        email
+        email,
+        unique: val => {
+          // return val !== "test@test.com";
+          if (val === '') return true; // Don't run async code if there's nothing there
+          // return new Promise((resolve, reject) => {
+          //   setTimeout(() => {
+          //     resolve(val !== "test@test.com");
+          //   }, 1000)
+          // })
+          return axios.get('/users.json?orderBy="email"&equalTo="' + val + '"')
+            .then(res => {
+              console.log(res);
+              console.log(Object.keys(res.data))
+              return Object.keys(res.data).length === 0;
+            })
+        }
       },
       age: {
         required,
