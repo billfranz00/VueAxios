@@ -23,6 +23,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
+    "uglifyjs-webpack-plugin": "^2.1.2",
     "vue-loader": "^15.5.1",
     "vue-template-compiler": "^2.5.22",
     "webpack": "^4.29.0",
